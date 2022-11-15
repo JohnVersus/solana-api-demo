@@ -268,7 +268,7 @@
             console.log(result);
             document.getElementById("walletBalanceResponse").innerHTML = `
             <h3>Wallet Balance:
-                <b>${Number(result) / 1e9}</b> SOL
+                <b>${result.solana}</b> SOL
              </h3>
               `;
           })
@@ -383,7 +383,7 @@
             document.getElementById("portfolioBalanceResponse").innerHTML = `
               <h3>
           Wallet Balance:
-          <b>${Number(nativeBalance) / 1e9}</b> SOL
+          <b>${nativeBalance.solana}</b> SOL
         </h3>
               `;
 

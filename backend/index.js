@@ -18,9 +18,14 @@ const Moralis = require("moralis").default;
 require("dotenv").config();
 
 const initMoralis = async () => {
-  await Moralis.start({
-    apiKey: process.env.MORALIS_API_KEY,
-  });
+  try {
+    await Moralis.start({
+      apiKey: process.env.MORALIS_API_KEY,
+    });
+  } catch (e) {
+    console.log(e.message);
+    res.status(400).send({ error: e.message });
+  }
 };
 
 initMoralis();
@@ -31,17 +36,21 @@ const getWalletbalance = async (address, network) => {
     network,
   });
 
-  return data.toJSON();
+  return data.raw;
 };
 
 app.post("/getWalletbalance", async (req, res) => {
   const { address, network } = req.body;
-
-  if (address && network) {
-    const response = await getWalletbalance(address, network);
-    res.status(200).json(response);
-  } else {
-    res.status(400).send({ error: "Missing Inputs" });
+  try {
+    if (address && network) {
+      const response = await getWalletbalance(address, network);
+      res.status(200).json(response);
+    } else {
+      res.status(400).send({ error: "Missing Inputs" });
+    }
+  } catch (e) {
+    console.log(e.message);
+    res.status(400).send({ error: e.message });
   }
 });
 
@@ -51,17 +60,21 @@ const getTokenbalance = async (address, network) => {
     network,
   });
 
-  return data.toJSON();
+  return data.raw;
 };
 
 app.post("/getTokenbalance", async (req, res) => {
   const { address, network } = req.body;
-
-  if (address && network) {
-    const response = await getTokenbalance(address, network);
-    res.status(200).json(response);
-  } else {
-    res.status(400).send({ error: "Missing Inputs" });
+  try {
+    if (address && network) {
+      const response = await getTokenbalance(address, network);
+      res.status(200).json(response);
+    } else {
+      res.status(400).send({ error: "Missing Inputs" });
+    }
+  } catch (e) {
+    console.log(e.message);
+    res.status(400).send({ error: e.message });
   }
 });
 
@@ -71,17 +84,21 @@ const getNfts = async (address, network) => {
     network,
   });
 
-  return data.toJSON();
+  return data.raw;
 };
 
 app.post("/getNfts", async (req, res) => {
   const { address, network } = req.body;
-
-  if (address && network) {
-    const response = await getNfts(address, network);
-    res.status(200).json(response);
-  } else {
-    res.status(400).send({ error: "Missing Inputs" });
+  try {
+    if (address && network) {
+      const response = await getNfts(address, network);
+      res.status(200).json(response);
+    } else {
+      res.status(400).send({ error: "Missing Inputs" });
+    }
+  } catch (e) {
+    console.log(e.message);
+    res.status(400).send({ error: e.message });
   }
 });
 
@@ -91,17 +108,21 @@ const getPortfolio = async (address, network) => {
     network,
   });
 
-  return data.toJSON();
+  return data.raw;
 };
 
 app.post("/getPortfolio", async (req, res) => {
   const { address, network } = req.body;
-
-  if (address && network) {
-    const response = await getPortfolio(address, network);
-    res.status(200).json(response);
-  } else {
-    res.status(400).send({ error: "Missing Inputs" });
+  try {
+    if (address && network) {
+      const response = await getPortfolio(address, network);
+      res.status(200).json(response);
+    } else {
+      res.status(400).send({ error: "Missing Inputs" });
+    }
+  } catch (e) {
+    console.log(e.message);
+    res.status(400).send({ error: e.message });
   }
 });
 
@@ -111,17 +132,21 @@ const getNFTMetadata = async (address, network) => {
     network,
   });
 
-  return data.toJSON();
+  return data.raw;
 };
 
 app.post("/getNFTMetadata", async (req, res) => {
   const { address, network } = req.body;
-
-  if (address && network) {
-    const response = await getNFTMetadata(address, network);
-    res.status(200).json(response);
-  } else {
-    res.status(400).send({ error: "Missing Inputs" });
+  try {
+    if (address && network) {
+      const response = await getNFTMetadata(address, network);
+      res.status(200).json(response);
+    } else {
+      res.status(400).send({ error: "Missing Inputs" });
+    }
+  } catch (e) {
+    console.log(e.message);
+    res.status(400).send({ error: e.message });
   }
 });
 
@@ -131,15 +156,20 @@ const getTokenPrice = async (address, network) => {
     network,
   });
 
-  return data.toJSON();
+  return data.raw;
 };
 
 app.post("/getTokenPrice", async (req, res) => {
   const { address, network } = req.body;
-  if (address && network) {
-    const response = await getTokenPrice(address, network);
-    res.status(200).json(response);
-  } else {
-    res.status(400).send({ error: "Missing Inputs" });
+  try {
+    if (address && network) {
+      const response = await getTokenPrice(address, network);
+      res.status(200).json(response);
+    } else {
+      res.status(400).send({ error: "Missing Inputs" });
+    }
+  } catch (e) {
+    console.log(e.message);
+    res.status(400).send({ error: e.message });
   }
 });
