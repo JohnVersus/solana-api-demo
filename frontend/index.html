@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Solana API Demo</title>
+  </head>
+  <h1>Solana API Endpoints</h1>
+  <body style="max-height: 100vh">
+    <!-- Wallet Balance -->
+    <section>
+      <details>
+        <summary>
+          <b style="font-size: 25px">Get Native Balance by Wallet</b>
+        </summary>
+        <br />
+        <br />
+        <div id="getWalletBalance" style="padding-left: 16px">
+          <label for="address"> <b>Address</b></label>
+          <input
+            type="text"
+            id="address"
+            name="address"
+            value=""
+            placeholder="Wallet address"
+          />
+          <input type="radio" id="mainnet" name="network" value="mainnet" />
+          <label for="mainnet"> <b>Mainnet </b></label>
+          <input type="radio" id="devnet" name="network" value="devnet" />
+          <label for="devnet"> <b>Devnet </b></label>
+          &emsp;
+          <button id="getData" onclick="getWalletBalance()">
+            <b> Get Native Balance </b>
+          </button>
+        </div>
+        <br />
+        <div
+          id="walletBalanceResponse"
+          style="padding-left: 16px; color: rgb(47, 173, 215)"
+        >
+          <h3>
+            Wallet Balance:
+            <b>__</b>
+          </h3>
+        </div>
+      </details>
+    </section>
+    <br />
+    <!-- Token Balance -->
+    <section>
+      <details>
+        <summary>
+          <b style="font-size: 25px">Get Token Balance by Wallet</b>
+        </summary>
+        <br />
+        <br />
+        <div id="getTokenbalance" style="padding-left: 16px">
+          <label for="address"> <b>Address</b></label>
+          <input
+            type="text"
+            id="address"
+            name="address"
+            value=""
+            placeholder="Wallet address"
+          />
+          <input type="radio" id="mainnet" name="network" value="mainnet" />
+          <label for="mainnet"> <b>Mainnet </b></label>
+          <input type="radio" id="devnet" name="network" value="devnet" />
+          <label for="devnet"> <b>Devnet </b></label>
+          &emsp;
+          <button id="getData" onclick="getTokenbalance()">
+            <b> Get Token Balance </b>
+          </button>
+        </div>
+        <br />
+        <div
+          id="tokenBalanceResponse"
+          style="padding-left: 16px; color: rgb(47, 173, 215)"
+        >
+          <h3>
+            Token Balance: <br />
+            <b>[ ]</b>
+          </h3>
+        </div>
+      </details>
+    </section>
+    <br />
+    <!-- NFT Balance -->
+    <section>
+      <details>
+        <summary>
+          <b style="font-size: 25px">Get NFTs by Wallet</b>
+        </summary>
+        <br />
+        <br />
+        <div id="getNfts" style="padding-left: 16px">
+          <label for="address"> <b>Address</b></label>
+          <input
+            type="text"
+            id="address"
+            name="address"
+            value=""
+            placeholder="Wallet address"
+          />
+          <input type="radio" id="mainnet" name="network" value="mainnet" />
+          <label for="mainnet"> <b>Mainnet </b></label>
+          <input type="radio" id="devnet" name="network" value="devnet" />
+          <label for="devnet"> <b>Devnet </b></label>
+          &emsp;
+          <button id="getData" onclick="getNfts()">
+            <b> Get NFT Balance </b>
+          </button>
+        </div>
+        <br />
+        <div
+          id="NFTBalanceResponse"
+          style="padding-left: 16px; color: rgb(47, 173, 215)"
+        >
+          <h3>
+            NFT Balance: <br />
+            <b>[ ]</b>
+          </h3>
+        </div>
+      </details>
+    </section>
+    <br />
+    <!-- Portfolio Balance -->
+    <section>
+      <details>
+        <summary>
+          <b style="font-size: 25px">Get Portfolio by Wallet</b>
+        </summary>
+        <br />
+        <br />
+        <div id="getPortfolio" style="padding-left: 16px">
+          <label for="address"> <b>Address</b></label>
+          <input
+            type="text"
+            id="address"
+            name="address"
+            value=""
+            placeholder="Wallet address"
+          />
+          <input type="radio" id="mainnet" name="network" value="mainnet" />
+          <label for="mainnet"> <b>Mainnet </b></label>
+          <input type="radio" id="devnet" name="network" value="devnet" />
+          <label for="devnet"> <b>Devnet </b></label>
+          &emsp;
+          <button id="getData" onclick="getPortfolio()">
+            <b> Get Portfolio </b>
+          </button>
+        </div>
+        <br />
+        <div
+          id="portfolioBalanceResponse"
+          style="padding-left: 16px; color: rgb(47, 173, 215)"
+        >
+          <h3>
+            Portfolio Balance: <br />
+            <b>[ ]</b>
+          </h3>
+        </div>
+      </details>
+    </section>
+    <br />
+    <!-- Get NFTMetadata Balance -->
+    <section>
+      <details>
+        <summary>
+          <b style="font-size: 25px">Get NFT Metadata</b>
+        </summary>
+        <br />
+        <br />
+        <div id="getNFTMetadata" style="padding-left: 16px">
+          <label for="address"> <b>Address</b></label>
+          <input
+            type="text"
+            id="address"
+            name="address"
+            value=""
+            placeholder="NFT mint address"
+          />
+          <input type="radio" id="mainnet" name="network" value="mainnet" />
+          <label for="mainnet"> <b>Mainnet </b></label>
+          <input type="radio" id="devnet" name="network" value="devnet" />
+          <label for="devnet"> <b>Devnet </b></label>
+          &emsp;
+          <button id="getData" onclick="getNFTMetadata()">
+            <b> Get NFT Metadata </b>
+          </button>
+        </div>
+        <br />
+        <div
+          id="NFTMetadataResponse"
+          style="padding-left: 16px; color: rgb(47, 173, 215)"
+        >
+          <h3>
+            NFT Metadata: <br />
+            <b>{ }</b>
+          </h3>
+        </div>
+      </details>
+    </section>
+    <br />
+    <!-- Get Token Price -->
+    <section>
+      <details>
+        <summary>
+          <b style="font-size: 25px">Get Token Price</b>
+        </summary>
+        <br />
+        <br />
+        <div id="getTokenPrice" style="padding-left: 16px">
+          <label for="address"> <b>Address</b></label>
+          <input
+            type="text"
+            id="address"
+            name="address"
+            value=""
+            placeholder="Token mint address"
+          />
+          <input
+            type="radio"
+            id="mainnet"
+            name="network"
+            value="mainnet"
+            checked
+          />
+          <label for="mainnet"> <b>Mainnet </b></label>
+
+          &emsp;
+          <button id="getData" onclick="getTokenPrice()">
+            <b> Get Token Price </b>
+          </button>
+        </div>
+        <br />
+        <div
+          id="tokenPriceResponse"
+          style="padding-left: 16px; color: rgb(47, 173, 215)"
+        >
+          <h3>Token Price: <b>__</b></h3>
+        </div>
+      </details>
+    </section>
+    <br />
+  </body>
+  <!-- Get Wallet Balance Script -->
+  <script defer>
+    const getWalletBalance = async () => {
+      const parent = document.getElementById("getWalletBalance");
+      parent.querySelector("#getData").disabled = true;
+      const address = parent.querySelector("#address").value;
+      const network = parent.querySelector(
+        'input[name="network"]:checked'
+      ).value;
+      try {
+        await fetch("http://localhost:9000/getWalletbalance", {
+          method: "POST",
+          headers: new Headers({
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          }),
+          body: JSON.stringify({ address, network }),
+        })
+          .then((response) => response.json())
+          .then((result) => {
+            console.log(result);
+            document.getElementById("walletBalanceResponse").innerHTML = `
+            <h3>Wallet Balance:
+                <b>${Number(result) / 1e9}</b> SOL
+             </h3>
+              `;
+          })
+          .catch((error) => console.log("error", error));
+      } catch (e) {
+        console.log(e);
+        parent.querySelector("#getData").disabled = false;
+      }
+      parent.querySelector("#getData").disabled = false;
+    };
+  </script>
+  <!-- Get Token Balance Script -->
+  <script defer>
+    const getTokenbalance = async () => {
+      const parent = document.getElementById("getTokenbalance");
+      parent.querySelector("#getData").disabled = true;
+      const address = parent.querySelector("#address").value;
+      const network = parent.querySelector(
+        'input[name="network"]:checked'
+      ).value;
+      try {
+        await fetch("http://localhost:9000/getTokenbalance", {
+          method: "POST",
+          headers: new Headers({
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          }),
+          body: JSON.stringify({ address, network }),
+        })
+          .then((response) => response.json())
+          .then((result) => {
+            console.log(result);
+            document.getElementById("tokenBalanceResponse").innerHTML = `
+            <h3> Token Balance: <br/>
+            [
+                ${result.map((item) => {
+                  return `<pre>${JSON.stringify(item, null, " ")}</pre>`;
+                })}
+            ]
+            </h3>
+              `;
+          })
+          .catch((error) => console.log("error", error));
+      } catch (e) {
+        console.log(e);
+        parent.querySelector("#getData").disabled = false;
+      }
+      parent.querySelector("#getData").disabled = false;
+    };
+  </script>
+  <!-- Get NFT Balance Script -->
+  <script defer>
+    const getNfts = async () => {
+      const parent = document.getElementById("getNfts");
+      parent.querySelector("#getData").disabled = true;
+      const address = parent.querySelector("#address").value;
+      const network = parent.querySelector(
+        'input[name="network"]:checked'
+      ).value;
+      try {
+        await fetch("http://localhost:9000/getNfts", {
+          method: "POST",
+          headers: new Headers({
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          }),
+          body: JSON.stringify({ address, network }),
+        })
+          .then((response) => response.json())
+          .then((result) => {
+            console.log(result);
+            document.getElementById("NFTBalanceResponse").innerHTML = `
+            <h3> NFT Balance: <br/>
+            [
+                ${result.map((item) => {
+                  return `<pre>${JSON.stringify(item, null, " ")}</pre>`;
+                })}
+            ]
+            </h3>
+              `;
+          })
+          .catch((error) => console.log("error", error));
+      } catch (e) {
+        console.log(e);
+        parent.querySelector("#getData").disabled = false;
+      }
+      parent.querySelector("#getData").disabled = false;
+    };
+  </script>
+  <!-- Get Portfolio Balance Script -->
+  <script defer>
+    const getPortfolio = async () => {
+      const parent = document.getElementById("getPortfolio");
+      parent.querySelector("#getData").disabled = true;
+      const address = parent.querySelector("#address").value;
+      const network = parent.querySelector(
+        'input[name="network"]:checked'
+      ).value;
+      try {
+        await fetch("http://localhost:9000/getPortfolio", {
+          method: "POST",
+          headers: new Headers({
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          }),
+          body: JSON.stringify({ address, network }),
+        })
+          .then((response) => response.json())
+          .then((result) => {
+            console.log(result);
+            const { nativeBalance, tokens, nfts } = result;
+            document.getElementById("portfolioBalanceResponse").innerHTML = `
+              <h3>
+          Wallet Balance:
+          <b>${Number(nativeBalance) / 1e9}</b> SOL
+        </h3>
+              `;
+
+            document.getElementById("portfolioBalanceResponse").innerHTML += `
+            <h3> Token Balance: <br/>
+            [
+                ${tokens.map((item) => {
+                  return `<pre>${JSON.stringify(item, null, " ")}</pre>`;
+                })}
+            ]
+            </h3>
+              `;
+
+            document.getElementById("portfolioBalanceResponse").innerHTML += `
+            <h3> NFT Balance: <br/>
+            [
+                ${nfts.map((item) => {
+                  return `<pre>${JSON.stringify(item, null, " ")}</pre>`;
+                })}
+            ]
+            </h3>
+              `;
+          })
+          .catch((error) => console.log("error", error));
+      } catch (e) {
+        console.log(e);
+        parent.querySelector("#getData").disabled = false;
+      }
+      parent.querySelector("#getData").disabled = false;
+    };
+  </script>
+  <!-- Get NFT Metadata Script -->
+  <script defer>
+    const getNFTMetadata = async () => {
+      const parent = document.getElementById("getNFTMetadata");
+      parent.querySelector("#getData").disabled = true;
+      const address = parent.querySelector("#address").value;
+      const network = parent.querySelector(
+        'input[name="network"]:checked'
+      ).value;
+      try {
+        await fetch("http://localhost:9000/getNFTMetadata", {
+          method: "POST",
+          headers: new Headers({
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          }),
+          body: JSON.stringify({ address, network }),
+        })
+          .then((response) => response.json())
+          .then((result) => {
+            console.log(result);
+
+            document.getElementById("NFTMetadataResponse").innerHTML = `
+            <h3> NFT Metadata: <br/>
+                  <pre>${JSON.stringify(result, null, " ")}</pre>
+            </h3>
+              `;
+          })
+          .catch((error) => console.log("error", error));
+      } catch (e) {
+        console.log(e);
+        parent.querySelector("#getData").disabled = false;
+      }
+      parent.querySelector("#getData").disabled = false;
+    };
+  </script>
+  <!-- Get Token Price Script -->
+  <script defer>
+    const getTokenPrice = async () => {
+      const parent = document.getElementById("getTokenPrice");
+      parent.querySelector("#getData").disabled = true;
+      const address = parent.querySelector("#address").value;
+      const network = parent.querySelector(
+        'input[name="network"]:checked'
+      ).value;
+      try {
+        await fetch("http://localhost:9000/getTokenPrice", {
+          method: "POST",
+          headers: new Headers({
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          }),
+          body: JSON.stringify({ address, network }),
+        })
+          .then((response) => response.json())
+          .then((result) => {
+            console.log(result);
+
+            document.getElementById("tokenPriceResponse").innerHTML = `
+            <h3>Token Price:
+                <b>${Number(result) / 1e9}</b> SOL
+             </h3>
+              `;
+          })
+          .catch((error) => console.log("error", error));
+      } catch (e) {
+        console.log(e);
+        parent.querySelector("#getData").disabled = false;
+      }
+      parent.querySelector("#getData").disabled = false;
+    };
+  </script>
+</html>
