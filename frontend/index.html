@@ -434,13 +434,21 @@
           body: JSON.stringify({ address, network }),
         })
           .then((response) => response.json())
-          .then((result) => {
+          .then(async (result) => {
             console.log(result);
-
+            const { image } = await fetch(result.metaplex.metadataUri).then(
+              (response) => {
+                return response.json();
+              }
+            );
+            console.log(image);
             document.getElementById("NFTMetadataResponse").innerHTML = `
             <h3> NFT Metadata: <br/>
                   <pre>${JSON.stringify(result, null, " ")}</pre>
-            </h3>
+            </h3> <br/>
+            <div>
+              <img src=${image} width="500" height="500"/> 
+              </div>
               `;
           })
           .catch((error) => console.log("error", error));
