@@ -239,7 +239,7 @@
           id="tokenPriceResponse"
           style="padding-left: 16px; color: rgb(47, 173, 215)"
         >
-          <h3>Token Price: <b>__</b></h3>
+          <h3>Token Data: <br /><b>{ }</b></h3>
         </div>
       </details>
     </section>
@@ -480,11 +480,10 @@
           .then((response) => response.json())
           .then((result) => {
             console.log(result);
-
             document.getElementById("tokenPriceResponse").innerHTML = `
-            <h3>Token Price:
-                <b>${Number(result) / 1e9}</b> SOL
-             </h3>
+            <h3> Token Data: <br/>
+                  <pre>${JSON.stringify(result, null, " ")}</pre>
+            </h3>
               `;
           })
           .catch((error) => console.log("error", error));
