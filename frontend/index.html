@@ -484,6 +484,16 @@
             <h3> Token Data: <br/>
                   <pre>${JSON.stringify(result, null, " ")}</pre>
             </h3>
+            ${
+              result.nativePrice
+                ? `
+                <h3> Relative Price of 1 Token = ${
+                  result.nativePrice.value / 10 ** result.nativePrice.decimals
+                } ${result.nativePrice.symbol}
+                </h3> <br/>
+              `
+                : ""
+            }
               `;
           })
           .catch((error) => console.log("error", error));
